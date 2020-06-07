@@ -6,7 +6,7 @@ const dev = process.env.NODE_ENV !== 'production'
 if (dev) {
   require('dotenv').config()
 }
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = parseInt(process.env.PORT as string, 10) || 3000
 
 const server = express()
 

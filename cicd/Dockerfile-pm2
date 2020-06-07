@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 # Installing dependencies
 COPY package*.json /usr/src/app/
 RUN npm install
+RUN npm install pm2 -g
 
 # Copying source files
 COPY . /usr/src/app
@@ -19,4 +20,4 @@ RUN npm run build
 ENV NODE_ENV production
 
 # Running the app
-CMD ["node", "build/server.js"]
+CMD ["pm2-runtime", "ecosystem.config.js"]

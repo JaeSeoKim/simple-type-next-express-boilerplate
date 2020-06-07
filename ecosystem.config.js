@@ -2,8 +2,9 @@ module.exports = {
   apps: [
     {
       name: 'server',
-      script: './server-register.js',
-      instances: 0,
+      script: 'node_modules/.bin/ts-node',
+      args: '--project tsconfig.server.json server/server.ts',
+      instances: 2,
       exec_mode: 'cluster',
       wait_ready: true,
       listen_timeout: 50000,

@@ -1,29 +1,14 @@
 {
-  "name": "simple-next-express-boilerplate",
-  "description": "Simple Next.js + Custom Express Server Boilerplate",
+  "name": "simple-type-next-express-boilerplate",
+  "description": "Simple TypeScript + Next.js + Custom Express Server Boilerplate",
   "author": "JaeSeoKim",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JaeSeoKim/simple-next-express-boilerplate.git"
-  },
-  "homepage": "https://github.com/JaeSeoKim/simple-next-express-boilerplate#readme",
-  "bugs": {
-    "url": "https://github.com/JaeSeoKim/simple-next-express-boilerplate/issues"
-  },
-  "keywords": [
-    "next.js",
-    "express",
-    "react",
-    "boilerplate",
-    "docker"
-  ],
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec babel-node server/server.js",
-    "dev:api": "nodemon --exec babel-node server/server-dev-api.js",
-    "build": "next build",
-    "start": "cross-env NODE_ENV=production babel-node server/server.js",
+    "dev": "nodemon --exec ts-node --project tsconfig.server.json server/server.ts",
+    "dev:api": "nodemon --exec ts-node --project tsconfig.server.json server/server-dev-api.ts",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/server.js",
     "pm2": "pm2 start ecosystem.config.js --env production",
     "pm2:dev": "pm2 start ecosystem.config.js"
   },
@@ -44,6 +29,13 @@
     "swr": "^0.2.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "@types/cookie-parser": "^1.4.2",
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.11",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   }
 }

@@ -1,7 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import { NextPage } from 'next'
 
-const home = props => {
+interface Props {}
+
+const home: NextPage<Props> = () => {
   return (
     <div>
       <h1>Home</h1>

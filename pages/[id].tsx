@@ -1,6 +1,12 @@
 import React from 'react'
+import { NextPage, NextPageContext } from 'next'
 import useReqeust from '../lib/utils/useRequest'
-const page = ({ id }) => {
+
+interface Props {
+  id: string
+}
+
+const page: NextPage<Props> = ({ id }) => {
   const { data, error } = useReqeust({
     url: `/api/user/${id}`,
     method: 'GET'
@@ -20,7 +26,11 @@ const page = ({ id }) => {
   )
 }
 
-page.getInitialProps = async ({ req, res, query: { id } }) => {
+interface Context extends NextPageContext {
+  query: { id: string }
+}
+
+page.getInitialProps = async ({ query: { id } }: Context) => {
   return { id }
 }
 
