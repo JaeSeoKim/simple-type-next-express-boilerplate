@@ -36,6 +36,5 @@
     "@types/react-dom": "^16.9.8",
     "nodemon": "^2.0.4",
     "ts-node": "^9.0.0",
-    "typescript": "^3.9.7"
   }
 }
